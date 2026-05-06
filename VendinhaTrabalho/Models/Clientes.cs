@@ -5,10 +5,9 @@ namespace VendinhaTrabalho.Models
 {
 	public class Clientes
 	{
-		[Required(ErrorMessage = "O nome do aluno é obrigatório")]
+		[Required(ErrorMessage = "O nome do cliente é obrigatório")]
 		[StringLength(100, MinimumLength = 10)]
 		[RegularExpression("^[A-Z][A-zA-z]+ [A-Z][A-zA-z ]+[^ ]$")]
-
 		public string Nome { get; set; }
 
 		[Required, StringLength(11)]
