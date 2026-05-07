@@ -1,0 +1,15 @@
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\bin\Debug\net10.0\VendinhaTrabalho.exe
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\bin\Debug\net10.0\VendinhaTrabalho.deps.json
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\bin\Debug\net10.0\VendinhaTrabalho.runtimeconfig.json
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\bin\Debug\net10.0\VendinhaTrabalho.dll
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\bin\Debug\net10.0\VendinhaTrabalho.pdb
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.AssemblyInfoInputs.cache
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.AssemblyInfo.cs
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.csproj.CoreCompileInputs.cache
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.sourcelink.json
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.dll
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\refint\VendinhaTrabalho.dll
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.pdb
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\VendinhaTrabalho.genruntimeconfig.cache
+C:\Users\Joao\OneDrive\Documentos\VendinhaTrabalhoCsharp\VendinhaTrabalho\obj\Debug\net10.0\ref\VendinhaTrabalho.dll
