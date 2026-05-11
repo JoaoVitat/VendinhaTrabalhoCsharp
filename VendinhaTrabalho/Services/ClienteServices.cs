@@ -5,7 +5,7 @@ using VendinhaTrabalho.Models;
 
 namespace VendinhaTrabalho
 {
-	public class ClientesServices
+	public class ClienteServices
 	{
         private List<Clientes> list = new List<Clientes>();
 

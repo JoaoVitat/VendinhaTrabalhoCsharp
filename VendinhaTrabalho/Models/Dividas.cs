@@ -6,12 +6,13 @@ namespace VendinhaTrabalho.Models
 {
 	public class Dividas
 	{
-		public string Valor { get; set; }
-		public string Situacao { get; set; }
+		public string CpfCliente { get; set; }
+		public decimal Valor { get; set; }
+		public bool Situacao { get; set; }
 		
 		public DateTime DatadeCriacao { get; set; }
 
-		public DateTime DatadePagamento { get; set; }
+		public DateTime? DatadePagamento { get; set; }
 
 	}
 }

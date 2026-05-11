@@ -1,14 +1,18 @@
 ﻿using VendinhaTrabalho;
 using VendinhaTrabalho.Models;
+using VendinhaTrabalho.Services;
 
-var service = new ClientesServices();
+var serviceCliente = new ClienteServices();
+var serviceDivida = new DividaService();
 
 while (true) {
 	Console.ReadKey();
 	Console.Clear();
 	Console.WriteLine("Digite uma Opção:");
-    Console.WriteLine("1 - Adicionar dividas");
-    Console.WriteLine("2 - Listar dividas");
+    Console.WriteLine("1 - Adicionar clientes");
+    Console.WriteLine("2 - adicionar dívidas");
+    Console.WriteLine("2 - Listar dívidas");
+    Console.WriteLine("2 - Pagar dívidas");
 
     int opcao;
     try
@@ -40,14 +44,43 @@ while (true) {
         Console.Write("Data de nascimento: ");
         cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
 
-        service.AdicionarCliente(cliente);
+        serviceCliente.AdicionarCliente(cliente);
 
         Console.WriteLine("Cliente cadastrado!");
         Console.ReadKey();
     }
+    //else if (opcao == 2)
+    //{
+    //    serviceCliente.ListarClientes();
+    //    Console.ReadKey();
+    //}
+
     else if (opcao == 2)
     {
-        service.ListarClientes();
+        Dividas dividas = new Dividas();
+
+        Console.Write("CPF: ");
+        string cpf = Console.ReadLine();
+
+        Console.Write("Valor da Compra: ");
+        decimal valor = decimal.Parse(Console.ReadLine());
+
+        string mensagem = serviceDivida.AdicionarDivida(cpf, valor);
+
+        Console.WriteLine(mensagem);
+    }
+
+    else if (opcao == 3)
+    {
+        serviceDivida.ListarDividas();
         Console.ReadKey();
+    }
+
+    else if (opcao == 4)
+    {
+        Console.Write("CPF: ");
+        string cpf = Console.ReadLine();
+
+        serviceDivida.DividaPaga(cpf);
     }
 }

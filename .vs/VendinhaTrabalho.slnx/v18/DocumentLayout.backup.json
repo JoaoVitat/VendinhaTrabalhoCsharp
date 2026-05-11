@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\services\\clientesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\services\\clientesservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\services\\dividaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\services\\dividaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\services\\clienteservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\services\\clienteservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\models\\dividas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\models\\dividas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\vendinhatrabalho.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -30,30 +34,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ClientesServices.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClientesServices.cs",
-              "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\ClientesServices.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClientesServices.cs",
-              "RelativeToolTip": "VendinhaTrabalho\\Services\\ClientesServices.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAA9AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DividaService.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\DividaService.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\DividaService.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\DividaService.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Services\\DividaService.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwEYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T12:33:52.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClienteServices.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-30T00:03:53.894Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Clientes.cs",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
               "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Clientes.cs",
               "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
               "RelativeToolTip": "VendinhaTrabalho\\Models\\Clientes.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwAUAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T23:49:55.236Z",
               "EditorCaption": ""
@@ -66,27 +83,27 @@
               "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Dividas.cs",
               "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
               "RelativeToolTip": "VendinhaTrabalho\\Models\\Dividas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T23:51:38.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
               "RelativeDocumentMoniker": "VendinhaTrabalho\\Program.cs",
               "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
               "RelativeToolTip": "VendinhaTrabalho\\Program.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAADIAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-29T23:55:37.848Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "VendinhaTrabalho.csproj",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\VendinhaTrabalho.csproj",
               "RelativeDocumentMoniker": "VendinhaTrabalho\\VendinhaTrabalho.csproj",
