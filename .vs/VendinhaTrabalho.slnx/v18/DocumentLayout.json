@@ -6,7 +6,79 @@
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
+<<<<<<< Updated upstream
       "DocumentGroups": []
+=======
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClientesServices.cs",
+              "DocumentMoniker": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClientesServices.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\ClientesServices.cs",
+              "ToolTip": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClientesServices.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Services\\ClientesServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T00:03:53.894Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Clientes.cs",
+              "DocumentMoniker": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Clientes.cs",
+              "ToolTip": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Models\\Clientes.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T23:49:55.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dividas.cs",
+              "DocumentMoniker": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Dividas.cs",
+              "ToolTip": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Models\\Dividas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T23:51:38.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Program.cs",
+              "ToolTip": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T23:55:37.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VendinhaTrabalho.csproj",
+              "DocumentMoniker": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\VendinhaTrabalho.csproj",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\VendinhaTrabalho.csproj",
+              "ToolTip": "C:\\Users\\joaov\\OneDrive\\Documentos\\VendinhaTrabalho\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\VendinhaTrabalho.csproj",
+              "RelativeToolTip": "VendinhaTrabalho\\VendinhaTrabalho.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-30T00:03:28.412Z"
+            }
+          ]
+        }
+      ]
+>>>>>>> Stashed changes
     }
   ]
 }
