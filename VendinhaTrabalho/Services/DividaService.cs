@@ -34,7 +34,10 @@ namespace VendinhaTrabalho.Services
 
         public void ListarDividas()
         {
-            foreach (var divida in list)
+
+			var dividasOrdenadas = list.OrderByDescending(d => d.Valor).ToList();
+
+            foreach (var divida in dividasOrdenadas)
             {
                 Console.WriteLine("------------------------");
                 Console.WriteLine($"CPF: {divida.CpfCliente}");
@@ -47,7 +50,7 @@ namespace VendinhaTrabalho.Services
 
         public void DividaPaga(string cpfP)
         {
-            var pagarDivida = list.FirstOrDefault(divida => divida.CpfCliente == cpfP);
+            var pagarDivida = list.FirstOrDefault(d => d.CpfCliente == cpfP);
 
             if (pagarDivida == null)
             {
@@ -58,8 +61,8 @@ namespace VendinhaTrabalho.Services
             {
                 pagarDivida.Situacao = true;
                 Console.WriteLine($"Divida do cpf({cpfP}) paga com sucesso!");
-                list.Remove(pagarDivida);
-                Console.WriteLine($"Cliente com o cpf ({cpfP}) foi removido das Dívidas com sucesso!");
+                //list.Remove(pagarDivida);
+                //Console.WriteLine($"Cliente com o cpf ({cpfP}) foi removido das Dívidas com sucesso!");
 
 
             }
@@ -68,5 +71,5 @@ namespace VendinhaTrabalho.Services
                 Console.WriteLine($"Error: Dívida não encontrada para este Cpf({cpfP})!");
             }
         }
-    }
+	}
 }

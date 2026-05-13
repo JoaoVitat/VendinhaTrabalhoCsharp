@@ -5,8 +5,8 @@ using VendinhaTrabalho.Models;
 
 namespace VendinhaTrabalho
 {
-	public class ClienteServices
-	{
+    public class ClienteServices
+    {
         private List<Clientes> list = new List<Clientes>();
 
         public void AdicionarCliente(Clientes cliente)
@@ -26,6 +26,19 @@ namespace VendinhaTrabalho
             }
         }
 
+        public void RemoverCliente(string removerCpf)
+        {
+            var removerCliente = list.FirstOrDefault(c => c.Cpf == removerCpf);
 
+            if (removerCliente == null)
+            {
+                Console.WriteLine($"Error: Dívida não encontrada para este Cpf({removerCpf})!");
+            }
+            else
+            {
+                list.Remove(removerCliente);
+                Console.WriteLine($"Cliente {removerCliente.Nome} e suas dívidas foram removidos com sucesso!");
+            }
+        }
     }
 }

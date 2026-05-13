@@ -10,7 +10,8 @@ namespace VendinhaTrabalho.Models
 		[RegularExpression("^[A-Z][A-zA-z]+ [A-Z][A-zA-z ]+[^ ]$")]
 		public string Nome { get; set; }
 
-		[Required, StringLength(11)]
+		[Required]
+		[StringLength(11, MinimumLength = 11, ErrorMessage = "O mínimo é 11 e o máximo é 11 números")]
 		[RegularExpression("[0-9]+$")]
 		public string Cpf { get; set; }
 
@@ -31,5 +32,7 @@ namespace VendinhaTrabalho.Models
 				return anos;
 			}
 		}
+
+		public string Email { get; set; }
 	}
 }
