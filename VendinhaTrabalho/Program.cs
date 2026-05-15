@@ -44,7 +44,10 @@ while (true) {
         Console.Write("Data de nascimento: ");
         cliente.DataNascimento = DateTime.Parse(Console.ReadLine());
 
-        serviceCliente.AdicionarCliente(cliente);
+		Console.Write("Email: ");
+		cliente.Email = Console.ReadLine();
+
+		serviceCliente.AdicionarCliente(cliente);
 
         Console.WriteLine("Cliente cadastrado!");
         Console.ReadKey();

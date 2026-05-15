@@ -23,6 +23,7 @@ namespace VendinhaTrabalho
                 Console.WriteLine($"CPF: {cliente.Cpf}");
                 Console.WriteLine($"Nascimento: {cliente.DataNascimento.ToShortDateString()}");
                 Console.WriteLine($"Idade: {cliente.Idade}");
+                Console.WriteLine($"Email: {cliente.Email}");
             }
         }
 
@@ -40,5 +41,10 @@ namespace VendinhaTrabalho
                 Console.WriteLine($"Cliente {removerCliente.Nome} e suas dívidas foram removidos com sucesso!");
             }
         }
-    }
+
+		public List<Clientes> ObterTodos()
+		{
+			return list.OrderBy(c => c.Nome).ToList();
+		}
+	}
 }
