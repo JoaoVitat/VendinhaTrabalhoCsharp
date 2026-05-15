@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VendinhaDesktop")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a52e059b361dc6a0ba55999a4d86b83b44b5af3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef86c83c9fdd075af31b7213cb1574bc4fd32d69")]
 [assembly: System.Reflection.AssemblyProductAttribute("VendinhaDesktop")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VendinhaDesktop")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

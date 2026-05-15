@@ -14,5 +14,9 @@ namespace VendinhaTrabalho.Models
 
 		public DateTime? DatadePagamento { get; set; }
 
+		public Clientes Cliente { get; set; }
+
+		public int ClienteId { get; set; }
+
 	}
 }

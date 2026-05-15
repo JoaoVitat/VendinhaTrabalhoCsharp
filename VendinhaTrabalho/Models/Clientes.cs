@@ -34,5 +34,7 @@ namespace VendinhaTrabalho.Models
 		}
 
 		public string Email { get; set; }
+
+		public List<Dividas> Dividas { get; set; } = new List<Dividas>();
 	}
 }
