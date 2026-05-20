@@ -5,6 +5,8 @@ namespace VendinhaTrabalho.Models
 {
 	public class Clientes
 	{
+		public int IdCliente { get; set; }
+
 		[Required(ErrorMessage = "O nome do cliente é obrigatório")]
 		[StringLength(100, MinimumLength = 10)]
 		[RegularExpression("^[A-Z][A-zA-z]+ [A-Z][A-zA-z ]+[^ ]$")]
@@ -33,6 +35,7 @@ namespace VendinhaTrabalho.Models
 			}
 		}
 
+		[Required]
 		public string Email { get; set; }
 
 		public List<Dividas> Dividas { get; set; } = new List<Dividas>();

@@ -30,6 +30,7 @@ namespace VendinhaDesktop.Screens
 			foreach (var item in _service.ObterTodos())
 			{
 				dataGridViewClientes.Rows.Add(
+					item.IdCliente.ToString(),
 					item.Nome,
 					item.Cpf,
 					item.DataNascimento.ToString("dd/MM/yyyy"),

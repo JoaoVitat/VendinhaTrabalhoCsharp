@@ -7,11 +7,23 @@ namespace VendinhaTrabalho
 {
     public class ClienteServices
     {
-        private List<Clientes> list = new List<Clientes>();
+        private static List<Clientes> list = new List<Clientes>();
+        private static int contadorId = 1;
 
-        public void AdicionarCliente(Clientes cliente)
+        public bool AdicionarCliente(Clientes cliente, out string erro)
         {
+            erro = null;
+
+            if(list.Any(c => c.Cpf == cliente.Cpf))
+            {
+                erro = "Este Cpf já está cadastrado!";
+                return false;
+            }
+
+            cliente.IdCliente = contadorId++;
+
             list.Add(cliente);
+            return true;
         }
 
         public void ListarClientes()

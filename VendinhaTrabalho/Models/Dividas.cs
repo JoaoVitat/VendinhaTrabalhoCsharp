@@ -6,6 +6,7 @@ namespace VendinhaTrabalho.Models
 {
 	public class Dividas
 	{
+		public int ClienteId { get; set; }
 		public string CpfCliente { get; set; }
 		public decimal Valor { get; set; }
 		public bool Situacao { get; set; }
@@ -16,7 +17,6 @@ namespace VendinhaTrabalho.Models
 
 		public Clientes Cliente { get; set; }
 
-		public int ClienteId { get; set; }
 
 	}
 }

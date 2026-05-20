@@ -47,7 +47,7 @@ while (true) {
 		Console.Write("Email: ");
 		cliente.Email = Console.ReadLine();
 
-		serviceCliente.AdicionarCliente(cliente);
+		serviceCliente.AdicionarCliente(cliente, out string erro);
 
         Console.WriteLine("Cliente cadastrado!");
         Console.ReadKey();
