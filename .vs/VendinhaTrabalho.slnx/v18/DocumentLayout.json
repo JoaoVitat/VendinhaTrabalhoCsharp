@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clientelistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clientelistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\dividalist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\dividalist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\dividalist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\dividalist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\services\\dividaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\services\\dividaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\vendinhadesktop\\screens\\dividalist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\dividalist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\models\\dividas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,40 +43,32 @@
       "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\services\\clienteservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clienteform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clienteform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clienteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clienteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\vendinhadesktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clientelistform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhatrabalho\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2FFB9F6-72FD-9AEA-5B34-544DB1BBFFD0}|VendinhaTrabalho\\VendinhaTrabalho.csproj|solutionrelative:vendinhatrabalho\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clienteform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clienteform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\vendinhadesktop\\screens\\clienteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clienteform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\screens\\clientelistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|solutionrelative:vendinhadesktop\\screens\\clientelistform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5ABFA9CB-BD12-4949-97F8-9712C9A4180E}|VendinhaDesktop\\VendinhaDesktop.csproj|c:\\users\\joao\\onedrive\\documentos\\vendinhatrabalhocsharp\\vendinhadesktop\\vendinhadesktop.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -66,49 +82,190 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dividas.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
-              "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Dividas.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
-              "RelativeToolTip": "VendinhaTrabalho\\Models\\Dividas.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "DividaList.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\DividaList.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\DividaList.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\DividaList.cs [Projeto]",
+              "RelativeToolTip": "VendinhaDesktop\\Screens\\DividaList.cs [Projeto]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T20:44:47.285Z"
+              "WhenOpened": "2026-05-21T13:48:44.089Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "DividaList.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\DividaList.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\DividaList.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\DividaList.cs",
+              "RelativeToolTip": "VendinhaDesktop\\Screens\\DividaList.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwAcAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T00:10:17.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DividaList.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\DividaList.Designer.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\DividaList.Designer.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\DividaList.Designer.cs",
+              "RelativeToolTip": "VendinhaDesktop\\Screens\\DividaList.Designer.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAtwDMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T13:13:32.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "DividaService.cs",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\DividaService.cs",
               "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\DividaService.cs",
               "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\DividaService.cs",
               "RelativeToolTip": "VendinhaTrabalho\\Services\\DividaService.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowD4AAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-20T13:46:26.752Z",
+              "WhenOpened": "2026-05-20T13:46:26.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClienteListForm.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteListForm.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs [Projeto]",
+              "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteListForm.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T20:15:41.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClienteListForm.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteListForm.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs",
+              "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteListForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T19:29:24.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dividas.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Dividas.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Dividas.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Models\\Dividas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T20:44:47.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClienteListForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
+              "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T20:14:37.965Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Form1.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs",
+              "RelativeToolTip": "VendinhaDesktop\\Form1.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAwwBEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T17:30:12.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
+              "Title": "ClienteServices.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Services\\ClienteServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:22:26.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ClienteForm.cs",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteForm.cs",
               "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteForm.cs",
               "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteForm.cs",
               "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteForm.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAAwwA4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-14T17:55:26.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Program.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Program.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAowGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T18:23:20.91Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Clientes.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Clientes.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Models\\Clientes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T20:45:54.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Form1.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs",
+              "RelativeDocumentMoniker": "VendinhaDesktop\\Form1.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs [Projeto]",
+              "RelativeToolTip": "VendinhaDesktop\\Form1.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T17:29:43.809Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "VendinhaTrabalho\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "VendinhaTrabalho\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T23:25:48.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "ClienteForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteForm.Designer.cs",
               "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteForm.Designer.cs",
@@ -120,90 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClienteServices.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClienteServices.cs",
-              "RelativeDocumentMoniker": "VendinhaTrabalho\\Services\\ClienteServices.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Services\\ClienteServices.cs",
-              "RelativeToolTip": "VendinhaTrabalho\\Services\\ClienteServices.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T18:22:26.619Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Clientes.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
-              "RelativeDocumentMoniker": "VendinhaTrabalho\\Models\\Clientes.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Models\\Clientes.cs",
-              "RelativeToolTip": "VendinhaTrabalho\\Models\\Clientes.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA5wAcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T20:45:54.322Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
-              "RelativeDocumentMoniker": "VendinhaTrabalho\\Program.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaTrabalho\\Program.cs",
-              "RelativeToolTip": "VendinhaTrabalho\\Program.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAAC4AAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T18:23:20.91Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Form1.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs",
-              "RelativeDocumentMoniker": "VendinhaDesktop\\Form1.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs [Projeto]",
-              "RelativeToolTip": "VendinhaDesktop\\Form1.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T17:29:43.809Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs",
-              "RelativeDocumentMoniker": "VendinhaDesktop\\Form1.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Form1.cs",
-              "RelativeToolTip": "VendinhaDesktop\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T17:30:12.065Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ClienteListForm.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs",
-              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteListForm.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs",
-              "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteListForm.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T19:29:24.015Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ClienteListForm.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs",
-              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteListForm.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.cs [Projeto]",
-              "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteListForm.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T20:15:41.42Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 16,
               "Title": "ClienteForm.cs [Projeto]",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteForm.cs",
               "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteForm.cs",
@@ -214,19 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ClienteListForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
-              "RelativeDocumentMoniker": "VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
-              "RelativeToolTip": "VendinhaDesktop\\Screens\\ClienteListForm.Designer.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAjwGsAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T20:14:37.965Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "VendinhaDesktop.csproj",
               "DocumentMoniker": "C:\\Users\\Joao\\OneDrive\\Documentos\\VendinhaTrabalhoCsharp\\VendinhaDesktop\\VendinhaDesktop.csproj",
               "RelativeDocumentMoniker": "VendinhaDesktop\\VendinhaDesktop.csproj",

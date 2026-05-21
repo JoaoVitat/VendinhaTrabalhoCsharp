@@ -73,19 +73,19 @@ while (true) {
         Console.WriteLine(mensagem);
     }
 
-    else if (opcao == 3)
-    {
-        serviceDivida.ListarDividas();
-        Console.ReadKey();
-    }
+    //else if (opcao == 3)
+    //{
+    //    serviceDivida.ListarDividas();
+    //    Console.ReadKey();
+    //}
 
-    else if (opcao == 4)
-    {
-        Console.Write("CPF: ");
-        string cpf = Console.ReadLine();
+    //else if (opcao == 4)
+    //{
+    //    Console.Write("CPF: ");
+    //    string cpf = Console.ReadLine();
 
-        serviceDivida.DividaPaga(cpf);
-    }
+    //    serviceDivida.DividaPaga(cpf);
+    //}
 
     else if (opcao == 5)
     {

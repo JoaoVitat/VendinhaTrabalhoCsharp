@@ -8,6 +8,8 @@ namespace VendinhaDesktop
 	public partial class Form1 : Form
 	{
 		public ClienteServices Service { get; } = new ClienteServices();
+
+		public DividaService DividaService { get; } = new DividaService();
 		public Form1()
 		{
 			InitializeComponent();
@@ -21,10 +23,12 @@ namespace VendinhaDesktop
 		}
 		private void btnListar_Click(object sender, EventArgs e)
 		{
-			var telaListar = new ClienteListForm(Service);
+			var telaListar = new ClienteListForm(Service, DividaService);
 
 			telaListar.ShowDialog();
 		}
+
+
 
 		private void labelEscolhaOpcao_Click(object sender, EventArgs e)
 		{

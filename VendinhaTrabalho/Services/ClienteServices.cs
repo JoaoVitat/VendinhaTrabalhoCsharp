@@ -54,7 +54,12 @@ namespace VendinhaTrabalho
             }
         }
 
-		public List<Clientes> ObterTodos()
+        public Clientes ObterPorId(int id)
+        {
+            return list.FirstOrDefault(c => c.IdCliente == id);
+        }
+
+        public List<Clientes> ObterTodos()
 		{
 			return list.OrderBy(c => c.Nome).ToList();
 		}

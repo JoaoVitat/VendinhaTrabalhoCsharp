@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             dataGridViewClientes = new DataGridView();
-            labelListagemClientes = new Label();
             idDivida = new DataGridViewTextBoxColumn();
             nomeCliente = new DataGridViewTextBoxColumn();
             CpfCliente = new DataGridViewTextBoxColumn();
             datanascCliente = new DataGridViewTextBoxColumn();
             IdadeCliente = new DataGridViewTextBoxColumn();
             emailCliente = new DataGridViewTextBoxColumn();
+            labelListagemClientes = new Label();
+            btnGerenciarCategorias = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             SuspendLayout();
             // 
@@ -48,20 +49,9 @@
             dataGridViewClientes.Margin = new Padding(3, 2, 3, 2);
             dataGridViewClientes.Name = "dataGridViewClientes";
             dataGridViewClientes.RowHeadersWidth = 51;
-            dataGridViewClientes.Size = new Size(696, 264);
+            dataGridViewClientes.Size = new Size(696, 245);
             dataGridViewClientes.TabIndex = 0;
             dataGridViewClientes.CellContentClick += dataGridViewClientes_CellContentClick;
-            // 
-            // labelListagemClientes
-            // 
-            labelListagemClientes.AutoSize = true;
-            labelListagemClientes.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelListagemClientes.Location = new Point(192, 7);
-            labelListagemClientes.Name = "labelListagemClientes";
-            labelListagemClientes.Size = new Size(316, 41);
-            labelListagemClientes.TabIndex = 1;
-            labelListagemClientes.Text = "Listagem de Clientes:";
-            labelListagemClientes.Click += labelListagemClientes_Click;
             // 
             // idDivida
             // 
@@ -104,11 +94,35 @@
             emailCliente.Name = "emailCliente";
             emailCliente.Width = 200;
             // 
+            // labelListagemClientes
+            // 
+            labelListagemClientes.AutoSize = true;
+            labelListagemClientes.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelListagemClientes.Location = new Point(188, 3);
+            labelListagemClientes.Name = "labelListagemClientes";
+            labelListagemClientes.Size = new Size(316, 41);
+            labelListagemClientes.TabIndex = 1;
+            labelListagemClientes.Text = "Listagem de Clientes:";
+            labelListagemClientes.Click += labelListagemClientes_Click;
+            // 
+            // btnGerenciarCategorias
+            // 
+            btnGerenciarCategorias.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGerenciarCategorias.Location = new Point(261, 296);
+            btnGerenciarCategorias.Name = "btnGerenciarCategorias";
+            btnGerenciarCategorias.Size = new Size(165, 30);
+            btnGerenciarCategorias.TabIndex = 2;
+            btnGerenciarCategorias.TabStop = false;
+            btnGerenciarCategorias.Text = "Gerenciar Categorias";
+            btnGerenciarCategorias.UseVisualStyleBackColor = true;
+            btnGerenciarCategorias.Click += btnGerenciarDividas_Click;
+            // 
             // ClienteListForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
+            Controls.Add(btnGerenciarCategorias);
             Controls.Add(labelListagemClientes);
             Controls.Add(dataGridViewClientes);
             Margin = new Padding(3, 2, 3, 2);
@@ -129,5 +143,6 @@
         private DataGridViewTextBoxColumn datanascCliente;
         private DataGridViewTextBoxColumn IdadeCliente;
         private DataGridViewTextBoxColumn emailCliente;
+        private Button btnGerenciarCategorias;
     }
 }
