@@ -14,26 +14,32 @@ namespace VendinhaDesktop.Screens
 {
     public partial class ClienteForm : Form
     {
-
+        private readonly Clientes clientesParaEditar;
         public ClienteServices Service { get; }
 
         public ClienteForm(ClienteServices service)
         {
             Service = service;
+            clientesParaEditar = null;
+            this.Text = "Cadstrar Cliente";
             InitializeComponent();
         }
 
-        private void btnCadastrarCliente_Click(object sender, EventArgs e)
+        public ClienteForm(ClienteServices service, Clientes clienteSelecionado)
         {
+			Service = service;
+			clientesParaEditar = clienteSelecionado;
+			this.Text = "Editar Cliente";
+			InitializeComponent();
 
-            //var cliente = new Clientes();
+			txtBoxNome.Text = clientesParaEditar.Nome;
+			maskedTxtBoxCpf.Text = clientesParaEditar.Cpf;
+			txtBoxEmail.Text = clientesParaEditar.Email;
+			dateTimePickerDatanasc.Value = clientesParaEditar.DataNascimento;
+		}
 
-            //cliente.Nome = txtBoxNome.Text;
-            //cliente.Cpf = maskedTxtBoxCpf.Text;
-            //cliente.Email = txtBoxEmail.Text;
-            //cliente.DataNascimento = dateTimePickerDatanasc.Value;
-
-            //var sucesso = Service.AdicionarCliente(cliente, out string erroDaValidacao);
+		private void btnCadastrarCliente_Click(object sender, EventArgs e)
+        {
 
             errorProvider1.Clear();
 
@@ -77,21 +83,9 @@ namespace VendinhaDesktop.Screens
             }
             else
             {
-                // Se caiu aqui, é porque o CPF já existia no banco em memória
                 errorProvider1.SetError(maskedTxtBoxCpf, erroDeValidacao);
                 MessageBox.Show(erroDeValidacao, "Erro de Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            //try
-            //{
-            //	_service.AdicionarCliente(novoCadastroCliente);
-            //	MessageBox.Show("Cliente Cadastrado com sucesso!");
-            //	this.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //	MessageBox.Show($"Erro ao cadastrar: {ex.Message}");
-            //}
         }
     }
 }

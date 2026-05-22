@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using VendinhaTrabalho.Models;
+using VendinhaTrabalho.Services;
 
 namespace VendinhaTrabalho
 {
@@ -39,19 +40,56 @@ namespace VendinhaTrabalho
             }
         }
 
-        public void RemoverCliente(string removerCpf)
+        public bool AtualizarCliente(Clientes atualizarCliente, out string erro)
         {
-            var removerCliente = list.FirstOrDefault(c => c.Cpf == removerCpf);
+            erro = null;
+
+            var cadastroOriginalCliente = list.FirstOrDefault(cliente => cliente.IdCliente == atualizarCliente.IdCliente);
+            if (cadastroOriginalCliente == null)
+            {
+                erro = "Cliente não foi encontrado!";
+                return false;
+            }
+
+            if (list.Any(cliente => cliente.Cpf == atualizarCliente.Cpf && cliente.IdCliente != atualizarCliente.IdCliente))
+            {
+                erro = "Este Cpf já está sendo usado por um cliente!";
+                return false;
+            }
+
+            cadastroOriginalCliente.Nome = atualizarCliente.Nome;
+			cadastroOriginalCliente.Cpf = atualizarCliente.Cpf;
+			cadastroOriginalCliente.DataNascimento = atualizarCliente.DataNascimento;
+			cadastroOriginalCliente.Email = atualizarCliente.Email;
+
+            return true;
+		}
+
+        public bool RemoverCliente(int IdCliente)
+        {
+            var removerCliente = list.FirstOrDefault(c => c.IdCliente == IdCliente);
 
             if (removerCliente == null)
             {
-                Console.WriteLine($"Error: Dívida não encontrada para este Cpf({removerCpf})!");
+                return false;
             }
             else
             {
                 list.Remove(removerCliente);
-                Console.WriteLine($"Cliente {removerCliente.Nome} e suas dívidas foram removidos com sucesso!");
+                return true;
             }
+        }
+
+        public List<Clientes> OrdenadosPorDivida(DividaService dividaService)
+        {
+            return list
+                    .OrderByDescending(cliente => dividaService.TotalDividaPorCpf(cliente.Cpf))
+                    .ToList();
+        }
+
+        public Clientes RecuperarCliente(string cpfPesquisa)
+        {
+            return list.FirstOrDefault(cliente => cliente.Cpf.Trim() == cpfPesquisa.Trim());
         }
 
         public Clientes ObterPorId(int id)
@@ -60,8 +98,8 @@ namespace VendinhaTrabalho
         }
 
         public List<Clientes> ObterTodos()
-		{
-			return list.OrderBy(c => c.Nome).ToList();
-		}
-	}
+        {
+            return list.OrderBy(c => c.Nome).ToList();
+        }
+    }
 }

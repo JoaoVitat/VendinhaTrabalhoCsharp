@@ -34,54 +34,31 @@ namespace VendinhaTrabalho.Services
 
         }
 
-        public List<Dividas> ObterDividasPorCpf(string cpf)
+        public decimal TotalDividaPorCpf(string cpf)
         {
-            // Usamos o LINQ para filtrar na sua lista (private List<Dividas> list)
-            // apenas as dívidas que pertencem ao CPF do cliente aberto na tela
-            return list
-                .Where(d => d.CpfCliente == cpf)
-                .ToList();
+
+			return list
+		        .Where(d => d.CpfCliente == cpf && !d.Situacao)
+		        .Sum(d => d.Valor);
+		}
+
+        public string DividaPaga(string cpfP)
+        {
+            var pagarDivida = list.FirstOrDefault(d => d.CpfCliente == cpfP);
+
+            if (pagarDivida == null)
+            {
+                return $"Erro: Nenhuma divida foi encontrada neste cpf!";
+            }
+
+            pagarDivida.Situacao = true;
+            pagarDivida.DatadePagamento = DateTime.Now;
+            return $"Divida do cpf({cpfP}) paga com sucesso!";
         }
 
-
-        //     public void ListarDividas()
-        //     {
-
-        //var dividasOrdenadas = list.OrderByDescending(d => d.Valor).ToList();
-
-        //         foreach (var divida in dividasOrdenadas)
-        //         {
-        //             Console.WriteLine("------------------------");
-        //             Console.WriteLine($"CPF: {divida.CpfCliente}");
-        //             Console.WriteLine($"Valor: {divida.Valor}");
-        //             string status = divida.Situacao ? "Paga" : "Pendente";
-        //             Console.WriteLine($"Situação da divida: {status}");
-        //             Console.WriteLine($"Data da divida: {divida.DatadeCriacao.ToShortDateString()}");
-        //         }
-        //     }
-
-        //     public void DividaPaga(string cpfP)
-        //     {
-        //         var pagarDivida = list.FirstOrDefault(d => d.CpfCliente == cpfP);
-
-        //         if (pagarDivida == null)
-        //         {
-        //             Console.WriteLine($"Erro: Nenhuma divida foi encontrada neste cpf ({cpfP})!");
-        //         }
-
-        //         if (pagarDivida != null)
-        //         {
-        //             pagarDivida.Situacao = true;
-        //             Console.WriteLine($"Divida do cpf({cpfP}) paga com sucesso!");
-        //             //list.Remove(pagarDivida);
-        //             //Console.WriteLine($"Cliente com o cpf ({cpfP}) foi removido das Dívidas com sucesso!");
-
-
-        //         }
-        //         else
-        //         {
-        //             Console.WriteLine($"Error: Dívida não encontrada para este Cpf({cpfP})!");
-        //         }
-        //     }
+        public List<Dividas> ObterDividasPorCpf(string cpf)
+        {
+            return list.Where(divida => divida.CpfCliente == cpf).ToList();
+        }
     }
 }

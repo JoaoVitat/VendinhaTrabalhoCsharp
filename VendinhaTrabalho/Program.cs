@@ -87,11 +87,11 @@ while (true) {
     //    serviceDivida.DividaPaga(cpf);
     //}
 
-    else if (opcao == 5)
-    {
-        Console.Write("Inserir Cpf: ");
-        string cpfRemover = Console.ReadLine();
+    //else if (opcao == 5)
+    //{
+    //    Console.Write("Inserir Cpf: ");
+    //    string cpfRemover = Console.ReadLine();
 
-        serviceCliente.RemoverCliente(cpfRemover);
-    }
+    //    serviceCliente.RemoverCliente(cpfRemover);
+    //}
 }

@@ -38,7 +38,7 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<Dividas>()
             .HasOne(d => d.Cliente)
-            .WithMany(c => c.Dividas)
-            .HasForeignKey(d => d.ClienteId);
+            .WithMany(c => c.Dividas);
+            //.HasForeignKey(d => d.ClienteId);
     }
 }
