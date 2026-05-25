@@ -27,10 +27,13 @@ namespace VendinhaDesktop.Screens
 
         public ClienteForm(ClienteServices service, Clientes clienteSelecionado)
         {
+
+			InitializeComponent();
+
 			Service = service;
 			clientesParaEditar = clienteSelecionado;
 			this.Text = "Editar Cliente";
-			InitializeComponent();
+			
 
 			txtBoxNome.Text = clientesParaEditar.Nome;
 			maskedTxtBoxCpf.Text = clientesParaEditar.Cpf;
@@ -60,13 +63,14 @@ namespace VendinhaDesktop.Screens
             if (txtBoxEmail.Text.Trim() == "")
             {
                 errorProvider1.SetError(txtBoxEmail, "Digite seu Email!");
+                error = true;
             }
             if (error)
             {
                 return;
             }
 
-            var novoCadastroCliente = new Clientes
+            var cadastroCliente = new Clientes
             {
                 Nome = txtBoxNome.Text,
                 Cpf = maskedTxtBoxCpf.Text,
@@ -74,18 +78,33 @@ namespace VendinhaDesktop.Screens
                 Email = txtBoxEmail.Text
             };
 
-            var sucesso = Service.AdicionarCliente(novoCadastroCliente, out string erroDeValidacao);
+			bool sucesso;
+			string erroDeValidacao;
+
+            if (clientesParaEditar == null)
+            {
+			     sucesso = Service.AdicionarCliente(cadastroCliente, out erroDeValidacao);
+            }
+            else
+            {
+                cadastroCliente.IdCliente = clientesParaEditar.IdCliente;
+
+				sucesso = Service.AtualizarCliente(cadastroCliente, out erroDeValidacao);
+			}
+
 
             if (sucesso)
             {
-                MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string mensagemSucesso = clientesParaEditar == null ? "Cliente cadastrado com sucesso!" : "Cliente editado com sucesso!";
+				MessageBox.Show(mensagemSucesso, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
             }
             else
             {
                 errorProvider1.SetError(maskedTxtBoxCpf, erroDeValidacao);
-                MessageBox.Show(erroDeValidacao, "Erro de Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(erroDeValidacao, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
     }
 }
