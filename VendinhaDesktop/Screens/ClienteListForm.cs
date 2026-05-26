@@ -15,6 +15,8 @@ namespace VendinhaDesktop.Screens
 	{
 		private readonly ClienteServices _service;
 		private readonly DividaService _dividaService;
+
+		private int paginaAtual = 1;
 		public ClienteListForm(ClienteServices service, DividaService dividaService)
 		{
 			_service = service;
@@ -31,11 +33,21 @@ namespace VendinhaDesktop.Screens
 		{
 			dataGridViewClientes.Rows.Clear();
 
-			var clientesOrdenadosPorDivida = _service.ObterTodos()
-											.OrderByDescending(cliente => _dividaService.TotalDividaPorCpf(cliente.Cpf))
-											.ToList();
+			var clientesPaginados = _service.ObterPorPagina(paginaAtual);
 
-			foreach (var item in clientesOrdenadosPorDivida)
+			if (clientesPaginados.Count == 0 && paginaAtual > 1)
+			{
+				MessageBox.Show("Você já está na última página com registros!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				paginaAtual--;
+				CarregarClientesTable();
+				return;
+			}
+
+			var clientesOrdenados = clientesPaginados
+									.OrderByDescending(cliente => _dividaService.TotalDividaPorCpf(cliente.Cpf))
+									.ToList();
+
+			foreach (var item in clientesOrdenados)
 			{
 				decimal totalPendente = _dividaService.TotalDividaPorCpf(item.Cpf);
 
@@ -49,6 +61,11 @@ namespace VendinhaDesktop.Screens
 					$"R$ {totalPendente:N2}"
 				);
 			}
+
+			lblPagina.Text = paginaAtual.ToString();
+
+			btnAnterior.Enabled = paginaAtual > 1;
+			btnProximo.Enabled = true;
 		}
 
 		private void dataGridViewClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -163,6 +180,38 @@ namespace VendinhaDesktop.Screens
 			{
 				MessageBox.Show("Nenhum cliente cadastrado com este CPF foi encontrado.", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
+		}
+
+		private void AtualizarGrade()
+		{
+			var dadosPaginados = _service.ObterPorPagina(paginaAtual);
+
+			if (dadosPaginados.Count == 0 && paginaAtual > 1)
+			{
+				MessageBox.Show("Você já está na última página com registros!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				paginaAtual--;
+				return;
+			}
+
+			dataGridViewClientes.DataSource = null;
+			dataGridViewClientes.DataSource = dadosPaginados;
+
+			lblPagina.Text = paginaAtual.ToString();
+
+
+			btnProximo.Enabled = true;
+		}
+
+		private void btnAnterior_Click(object sender, EventArgs e)
+		{
+				paginaAtual--;
+				CarregarClientesTable();
+		}
+
+		private void btnProximo_Click(object sender, EventArgs e)
+		{
+				paginaAtual++;
+				CarregarClientesTable();
 		}
 	}
 }

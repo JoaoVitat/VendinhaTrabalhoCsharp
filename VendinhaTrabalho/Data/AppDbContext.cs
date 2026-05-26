@@ -1,44 +1,53 @@
-using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using VendinhaTrabalho.Models;
 
-namespace VendinhaTrabalho.Data;
+namespace VendinhaTrabalho.Data
+	public class AppDbContext : DbContext
+	{
+		private readonly string _connectionString;
 
-public class AppDbContext : DbContext
-{
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        Env.Load();
+		public AppDbContext(string connectionString)
+		{
+			_connectionString = connectionString;
+		}
 
-        string host = Environment.GetEnvironmentVariable("DB_HOST")!;
-        string port = Environment.GetEnvironmentVariable("DB_PORT")!;
-        string database = Environment.GetEnvironmentVariable("DB_NAME")!;
-        string username = Environment.GetEnvironmentVariable("DB_USER")!;
-        string password = Environment.GetEnvironmentVariable("DB_PASSWORD")!;
+		public DbSet<Clientes> Clientes { get; set; }
 
-        string connectionString =
-            $"Host={host};" +
-            $"Port={port};" +
-            $"Database={database};" +
-            $"Username={username};" +
-            $"Password={password}";
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Clientes>()
+				.ToTable("cliente");
 
-        optionsBuilder.UseNpgsql(connectionString);
-    }
+			modelBuilder.Entity<Clientes>()
+				.Property(c => c.Cpf)
+				.HasColumnName("Cpf");
 
-    public DbSet<Clientes> Clientes { get; set; }
+			modelBuilder.Entity<Clientes>()
+				.HasKey(c => c.IdCliente);
 
-    public DbSet<Dividas> Dividas { get; set; }
+			modelBuilder.Entity<Clientes>()
+				.Property(c => c.IdCliente)
+				.HasColumnName("Id");
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Clientes>()
-            .HasIndex(c => c.Cpf)
-            .IsUnique();
+			modelBuilder.Entity<Clientes>()
+				.Property(c => c.Nome)
+				.HasColumnName("Nome");
 
-        modelBuilder.Entity<Dividas>()
-            .HasOne(d => d.Cliente)
-            .WithMany(c => c.Dividas);
-            //.HasForeignKey(d => d.ClienteId);
-    }
+			modelBuilder.Entity<Clientes>()
+				.Property(c => c.Email)
+				.HasColumnName("Email");
+
+			modelBuilder.Entity<Clientes>()
+				.Property(c => c.DataNascimento)
+				.HasColumnName("DataNascimento");
+		}
+
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			if (!optionsBuilder.IsConfigured)
+			{
+				optionsBuilder.UseNpgsql(_connectionString);
+			}
+		}
+	}
 }

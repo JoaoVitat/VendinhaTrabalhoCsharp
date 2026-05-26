@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "VendinhaDesktop/1.0.0": {
         "dependencies": {
+          "Npgsql": "10.0.2",
           "VendinhaTrabalho": "1.0.0"
         },
         "runtime": {

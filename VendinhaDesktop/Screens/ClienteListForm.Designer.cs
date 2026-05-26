@@ -29,13 +29,6 @@
 		private void InitializeComponent()
 		{
 			dataGridViewClientes = new DataGridView();
-			labelListagemClientes = new Label();
-			btnGerenciarCategorias = new Button();
-			btnExcluirCliente = new Button();
-			btnEditarCliente = new Button();
-			lblRecuperar = new Label();
-			txtBoxRecuperar = new TextBox();
-			btnRecuperarCliente = new Button();
 			idDivida = new DataGridViewTextBoxColumn();
 			nomeCliente = new DataGridViewTextBoxColumn();
 			CpfCliente = new DataGridViewTextBoxColumn();
@@ -43,6 +36,16 @@
 			IdadeCliente = new DataGridViewTextBoxColumn();
 			emailCliente = new DataGridViewTextBoxColumn();
 			totalDivida = new DataGridViewTextBoxColumn();
+			labelListagemClientes = new Label();
+			btnGerenciarCategorias = new Button();
+			btnExcluirCliente = new Button();
+			btnEditarCliente = new Button();
+			lblRecuperar = new Label();
+			txtBoxRecuperar = new TextBox();
+			btnRecuperarCliente = new Button();
+			btnAnterior = new Button();
+			btnProximo = new Button();
+			lblPagina = new Label();
 			((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
 			SuspendLayout();
 			// 
@@ -57,80 +60,6 @@
 			dataGridViewClientes.Size = new Size(998, 322);
 			dataGridViewClientes.TabIndex = 0;
 			dataGridViewClientes.CellContentClick += dataGridViewClientes_CellContentClick;
-			// 
-			// labelListagemClientes
-			// 
-			labelListagemClientes.AutoSize = true;
-			labelListagemClientes.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			labelListagemClientes.Location = new Point(54, 9);
-			labelListagemClientes.Name = "labelListagemClientes";
-			labelListagemClientes.Size = new Size(379, 50);
-			labelListagemClientes.TabIndex = 1;
-			labelListagemClientes.Text = "Listagem de Clientes";
-			labelListagemClientes.Click += labelListagemClientes_Click;
-			// 
-			// btnGerenciarCategorias
-			// 
-			btnGerenciarCategorias.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			btnGerenciarCategorias.Location = new Point(235, 414);
-			btnGerenciarCategorias.Margin = new Padding(3, 4, 3, 4);
-			btnGerenciarCategorias.Name = "btnGerenciarCategorias";
-			btnGerenciarCategorias.Size = new Size(189, 40);
-			btnGerenciarCategorias.TabIndex = 2;
-			btnGerenciarCategorias.TabStop = false;
-			btnGerenciarCategorias.Text = "Gerenciar Dividas";
-			btnGerenciarCategorias.UseVisualStyleBackColor = true;
-			btnGerenciarCategorias.Click += btnGerenciarDividas_Click;
-			// 
-			// btnExcluirCliente
-			// 
-			btnExcluirCliente.Font = new Font("Segoe UI", 12.2F, FontStyle.Bold);
-			btnExcluirCliente.Location = new Point(473, 414);
-			btnExcluirCliente.Name = "btnExcluirCliente";
-			btnExcluirCliente.Size = new Size(189, 40);
-			btnExcluirCliente.TabIndex = 3;
-			btnExcluirCliente.Text = "Excluir Cliente";
-			btnExcluirCliente.UseVisualStyleBackColor = true;
-			btnExcluirCliente.Click += btnExcluirCliente_Click;
-			// 
-			// btnEditarCliente
-			// 
-			btnEditarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			btnEditarCliente.Location = new Point(716, 414);
-			btnEditarCliente.Name = "btnEditarCliente";
-			btnEditarCliente.Size = new Size(189, 40);
-			btnEditarCliente.TabIndex = 4;
-			btnEditarCliente.Text = "Editar Cliente";
-			btnEditarCliente.UseVisualStyleBackColor = true;
-			btnEditarCliente.Click += btnEditarCliente_Click;
-			// 
-			// lblRecuperar
-			// 
-			lblRecuperar.AutoSize = true;
-			lblRecuperar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lblRecuperar.Location = new Point(758, 9);
-			lblRecuperar.Name = "lblRecuperar";
-			lblRecuperar.Size = new Size(208, 31);
-			lblRecuperar.TabIndex = 5;
-			lblRecuperar.Text = "Recuperar Cliente:";
-			// 
-			// txtBoxRecuperar
-			// 
-			txtBoxRecuperar.Location = new Point(758, 47);
-			txtBoxRecuperar.Name = "txtBoxRecuperar";
-			txtBoxRecuperar.Size = new Size(178, 27);
-			txtBoxRecuperar.TabIndex = 6;
-			// 
-			// btnRecuperarCliente
-			// 
-			btnRecuperarCliente.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-			btnRecuperarCliente.Location = new Point(942, 47);
-			btnRecuperarCliente.Name = "btnRecuperarCliente";
-			btnRecuperarCliente.Size = new Size(94, 29);
-			btnRecuperarCliente.TabIndex = 7;
-			btnRecuperarCliente.Text = "Buscar";
-			btnRecuperarCliente.UseVisualStyleBackColor = true;
-			btnRecuperarCliente.Click += btnRecuperarCliente_Click;
 			// 
 			// idDivida
 			// 
@@ -181,11 +110,119 @@
 			totalDivida.Name = "totalDivida";
 			totalDivida.Width = 150;
 			// 
+			// labelListagemClientes
+			// 
+			labelListagemClientes.AutoSize = true;
+			labelListagemClientes.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			labelListagemClientes.Location = new Point(54, 9);
+			labelListagemClientes.Name = "labelListagemClientes";
+			labelListagemClientes.Size = new Size(379, 50);
+			labelListagemClientes.TabIndex = 1;
+			labelListagemClientes.Text = "Listagem de Clientes";
+			labelListagemClientes.Click += labelListagemClientes_Click;
+			// 
+			// btnGerenciarCategorias
+			// 
+			btnGerenciarCategorias.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			btnGerenciarCategorias.Location = new Point(54, 415);
+			btnGerenciarCategorias.Margin = new Padding(3, 4, 3, 4);
+			btnGerenciarCategorias.Name = "btnGerenciarCategorias";
+			btnGerenciarCategorias.Size = new Size(189, 40);
+			btnGerenciarCategorias.TabIndex = 2;
+			btnGerenciarCategorias.TabStop = false;
+			btnGerenciarCategorias.Text = "Gerenciar Dividas";
+			btnGerenciarCategorias.UseVisualStyleBackColor = true;
+			btnGerenciarCategorias.Click += btnGerenciarDividas_Click;
+			// 
+			// btnExcluirCliente
+			// 
+			btnExcluirCliente.Font = new Font("Segoe UI", 12.2F, FontStyle.Bold);
+			btnExcluirCliente.Location = new Point(249, 415);
+			btnExcluirCliente.Name = "btnExcluirCliente";
+			btnExcluirCliente.Size = new Size(189, 40);
+			btnExcluirCliente.TabIndex = 3;
+			btnExcluirCliente.Text = "Excluir Cliente";
+			btnExcluirCliente.UseVisualStyleBackColor = true;
+			btnExcluirCliente.Click += btnExcluirCliente_Click;
+			// 
+			// btnEditarCliente
+			// 
+			btnEditarCliente.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			btnEditarCliente.Location = new Point(444, 415);
+			btnEditarCliente.Name = "btnEditarCliente";
+			btnEditarCliente.Size = new Size(189, 40);
+			btnEditarCliente.TabIndex = 4;
+			btnEditarCliente.Text = "Editar Cliente";
+			btnEditarCliente.UseVisualStyleBackColor = true;
+			btnEditarCliente.Click += btnEditarCliente_Click;
+			// 
+			// lblRecuperar
+			// 
+			lblRecuperar.AutoSize = true;
+			lblRecuperar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			lblRecuperar.Location = new Point(758, 9);
+			lblRecuperar.Name = "lblRecuperar";
+			lblRecuperar.Size = new Size(208, 31);
+			lblRecuperar.TabIndex = 5;
+			lblRecuperar.Text = "Recuperar Cliente:";
+			// 
+			// txtBoxRecuperar
+			// 
+			txtBoxRecuperar.Location = new Point(758, 47);
+			txtBoxRecuperar.Name = "txtBoxRecuperar";
+			txtBoxRecuperar.Size = new Size(178, 27);
+			txtBoxRecuperar.TabIndex = 6;
+			// 
+			// btnRecuperarCliente
+			// 
+			btnRecuperarCliente.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+			btnRecuperarCliente.Location = new Point(942, 47);
+			btnRecuperarCliente.Name = "btnRecuperarCliente";
+			btnRecuperarCliente.Size = new Size(94, 29);
+			btnRecuperarCliente.TabIndex = 7;
+			btnRecuperarCliente.Text = "Buscar";
+			btnRecuperarCliente.UseVisualStyleBackColor = true;
+			btnRecuperarCliente.Click += btnRecuperarCliente_Click;
+			// 
+			// btnAnterior
+			// 
+			btnAnterior.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			btnAnterior.Location = new Point(715, 414);
+			btnAnterior.Name = "btnAnterior";
+			btnAnterior.Size = new Size(100, 41);
+			btnAnterior.TabIndex = 8;
+			btnAnterior.Text = "Anterior";
+			btnAnterior.UseVisualStyleBackColor = true;
+			btnAnterior.Click += btnAnterior_Click;
+			// 
+			// btnProximo
+			// 
+			btnProximo.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+			btnProximo.Location = new Point(900, 415);
+			btnProximo.Name = "btnProximo";
+			btnProximo.Size = new Size(100, 41);
+			btnProximo.TabIndex = 9;
+			btnProximo.Text = "Próximo";
+			btnProximo.UseVisualStyleBackColor = true;
+			btnProximo.Click += btnProximo_Click;
+			// 
+			// lblPagina
+			// 
+			lblPagina.AutoSize = true;
+			lblPagina.Location = new Point(848, 425);
+			lblPagina.Name = "lblPagina";
+			lblPagina.Size = new Size(17, 20);
+			lblPagina.TabIndex = 10;
+			lblPagina.Text = "1";
+			// 
 			// ClienteListForm
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1099, 494);
+			Controls.Add(lblPagina);
+			Controls.Add(btnProximo);
+			Controls.Add(btnAnterior);
 			Controls.Add(btnRecuperarCliente);
 			Controls.Add(txtBoxRecuperar);
 			Controls.Add(lblRecuperar);
@@ -218,5 +255,8 @@
 		private DataGridViewTextBoxColumn IdadeCliente;
 		private DataGridViewTextBoxColumn emailCliente;
 		private DataGridViewTextBoxColumn totalDivida;
+		private Button btnAnterior;
+		private Button btnProximo;
+		private Label lblPagina;
 	}
 }

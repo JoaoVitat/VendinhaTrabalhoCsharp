@@ -15,7 +15,6 @@ namespace VendinhaTrabalho.Migrations
     [Migration("20260515201348_InitialCreate")]
     partial class InitialCreate
     {
-        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

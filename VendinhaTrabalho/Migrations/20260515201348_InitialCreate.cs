@@ -6,14 +6,12 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace VendinhaTrabalho.Migrations
 {
-    /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Cliente",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -29,7 +27,7 @@ namespace VendinhaTrabalho.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dividas",
+                name: "Divida",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -62,15 +60,13 @@ namespace VendinhaTrabalho.Migrations
                 table: "Dividas",
                 column: "ClienteId");
         }
-
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Dividas");
+                name: "divida");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "cliente");
         }
     }
 }

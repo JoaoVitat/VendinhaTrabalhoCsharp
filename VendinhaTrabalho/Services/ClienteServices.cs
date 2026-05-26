@@ -1,105 +1,225 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Data;
+using System.Linq;
+using Npgsql;
 using VendinhaTrabalho.Models;
 using VendinhaTrabalho.Services;
 
 namespace VendinhaTrabalho
 {
-    public class ClienteServices
-    {
-        private static List<Clientes> list = new List<Clientes>();
-        private static int contadorId = 1;
+	public class ClienteServices
+	{
+		private readonly string _connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=3451;Database=db_vendinha;";
 
-        public bool AdicionarCliente(Clientes cliente, out string erro)
-        {
-            erro = null;
+		public bool AdicionarCliente(Clientes cliente, out string erro)
+		{
+			erro = null;
 
-            if(list.Any(c => c.Cpf == cliente.Cpf))
-            {
-                erro = "Este Cpf já está cadastrado!";
-                return false;
-            }
+			if (CpfJaCadastrado(cliente.Cpf))
+			{
+				erro = "Este CPF já está cadastrado!";
+				return false;
+			}
 
-            cliente.IdCliente = contadorId++;
+			string query = @"INSERT INTO cliente (nome, cpf, datanascimento, email) 
+                             VALUES (@nome, @cpf, @datanascimento, @email);";
 
-            list.Add(cliente);
-            return true;
-        }
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(query, conexao))
+					{
+						comando.Parameters.AddWithValue("@nome", cliente.Nome);
+						comando.Parameters.AddWithValue("@cpf", cliente.Cpf);
+						comando.Parameters.AddWithValue("@datanascimento", cliente.DataNascimento);
+						comando.Parameters.AddWithValue("@email", cliente.Email ?? (object)DBNull.Value);
 
-        public void ListarClientes()
-        {
-            foreach (var cliente in list)
-            {
-                Console.WriteLine("------------------------");
-                Console.WriteLine($"Nome: {cliente.Nome}");
-                Console.WriteLine($"CPF: {cliente.Cpf}");
-                Console.WriteLine($"Nascimento: {cliente.DataNascimento.ToShortDateString()}");
-                Console.WriteLine($"Idade: {cliente.Idade}");
-                Console.WriteLine($"Email: {cliente.Email}");
-            }
-        }
-
-        public bool AtualizarCliente(Clientes atualizarCliente, out string erro)
-        {
-            erro = null;
-
-            var cadastroOriginalCliente = list.FirstOrDefault(cliente => cliente.IdCliente == atualizarCliente.IdCliente);
-            if (cadastroOriginalCliente == null)
-            {
-                erro = "Cliente não foi encontrado!";
-                return false;
-            }
-
-            if (list.Any(cliente => cliente.Cpf == atualizarCliente.Cpf && cliente.IdCliente != atualizarCliente.IdCliente))
-            {
-                erro = "Este Cpf já está sendo usado por um cliente!";
-                return false;
-            }
-
-            cadastroOriginalCliente.Nome = atualizarCliente.Nome;
-			cadastroOriginalCliente.Cpf = atualizarCliente.Cpf;
-			cadastroOriginalCliente.DataNascimento = atualizarCliente.DataNascimento;
-			cadastroOriginalCliente.Email = atualizarCliente.Email;
-
-            return true;
+						comando.ExecuteNonQuery();
+						return true;
+					}
+				}
+				catch (Exception ex)
+				{
+					erro = "Erro ao salvar no banco: " + ex.Message;
+					return false;
+				}
+			}
 		}
 
-        public bool RemoverCliente(int IdCliente)
-        {
-            var removerCliente = list.FirstOrDefault(c => c.IdCliente == IdCliente);
+		public List<Clientes> ObterTodos()
+		{
+			var lista = new List<Clientes>();
+			string query = "SELECT idcliente, nome, cpf, datanascimento, email FROM cliente ORDER BY idcliente ASC;";
 
-            if (removerCliente == null)
-            {
-                return false;
-            }
-            else
-            {
-                list.Remove(removerCliente);
-                return true;
-            }
-        }
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(query, conexao))
+					{
+						using (var reader = comando.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								var cliente = new Clientes
+								{
+									IdCliente = Convert.ToInt32(reader["idcliente"]),
+									Nome = reader["nome"].ToString(),
+									Cpf = reader["cpf"].ToString(),
+									DataNascimento = Convert.ToDateTime(reader["datanascimento"]),
+									Email = reader["email"].ToString()
+								};
+								lista.Add(cliente);
+							}
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Erro ao buscar clientes: " + ex.Message);
+				}
+			}
+			return lista;
+		}
 
-        public List<Clientes> OrdenadosPorDivida(DividaService dividaService)
-        {
-            return list
-                    .OrderByDescending(cliente => dividaService.TotalDividaPorCpf(cliente.Cpf))
-                    .ToList();
-        }
+		public bool AtualizarCliente(Clientes atualizarCliente, out string erro)
+		{
+			erro = null;
 
-        public Clientes RecuperarCliente(string cpfPesquisa)
-        {
-            return list.FirstOrDefault(cliente => cliente.Cpf.Trim() == cpfPesquisa.Trim());
-        }
+			string query = @"UPDATE cliente 
+                             SET nome = @nome, cpf = @cpf, datanascimento = @datanascimento, email = @email 
+                             WHERE idcliente = @idcliente;";
 
-        public Clientes ObterPorId(int id)
-        {
-            return list.FirstOrDefault(c => c.IdCliente == id);
-        }
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(query, conexao))
+					{
+						comando.Parameters.AddWithValue("@idcliente", atualizarCliente.IdCliente);
+						comando.Parameters.AddWithValue("@nome", atualizarCliente.Nome);
+						comando.Parameters.AddWithValue("@cpf", atualizarCliente.Cpf);
+						comando.Parameters.AddWithValue("@datanascimento", atualizarCliente.DataNascimento);
+						comando.Parameters.AddWithValue("@email", atualizarCliente.Email ?? (object)DBNull.Value);
 
-        public List<Clientes> ObterTodos()
-        {
-            return list.OrderBy(c => c.Nome).ToList();
-        }
-    }
+						comando.ExecuteNonQuery();
+						return true;
+					}
+				}
+				catch (Exception ex)
+				{
+					erro = "Erro ao atualizar: " + ex.Message;
+					return false;
+				}
+			}
+		}
+
+		public bool RemoverCliente(int idCliente)
+		{
+			string query = "DELETE FROM cliente WHERE idcliente = @idcliente;";
+
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(query, conexao))
+					{
+						comando.Parameters.AddWithValue("@idcliente", idCliente);
+						comando.ExecuteNonQuery();
+						return true;
+					}
+				}
+				catch
+				{
+					return false;
+				}
+			}
+		}
+
+		private bool CpfJaCadastrado(string cpf)
+		{
+			string query = "SELECT COUNT(*) FROM cliente WHERE cpf = @cpf;";
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				conexao.Open();
+				using (var comando = new NpgsqlCommand(query, conexao))
+				{
+					comando.Parameters.AddWithValue("@cpf", cpf);
+					long contagem = (long)comando.ExecuteScalar();
+					return contagem > 0;
+				}
+			}
+		}
+
+		public Clientes RecuperarCliente(string cpfPesquisa)
+		{
+			return ObterTodos().FirstOrDefault(c => c.Cpf.Trim() == cpfPesquisa.Trim());
+		}
+
+		public Clientes ObterPorId(int id)
+		{
+			return ObterTodos().FirstOrDefault(c => c.IdCliente == id);
+		}
+
+		public List<Clientes> OrdenadosPorDivida(DividaService dividaService)
+		{
+			return ObterTodos()
+			.OrderByDescending(cliente => dividaService.TotalDividaPorCpf(cliente.Cpf))
+			.ToList();
+		}
+
+		public List<Clientes> ObterPorPagina(int paginaAtual)
+		{
+			var lista = new List<Clientes>();
+			int tamanhoPagina = 10;
+
+			if (paginaAtual < 1) paginaAtual = 1;
+			int registrosParaPular = (paginaAtual - 1) * tamanhoPagina;
+
+			string query = @"SELECT idcliente, nome, cpf, datanascimento, email 
+                     FROM cliente 
+                     ORDER BY idcliente ASC 
+                     LIMIT @limit OFFSET @offset;";
+
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(query, conexao))
+					{
+						comando.Parameters.Add("@limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = tamanhoPagina;
+						comando.Parameters.Add("@offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = registrosParaPular;
+
+						using (var reader = comando.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								var cliente = new Clientes
+								{
+									IdCliente = Convert.ToInt32(reader["idcliente"]),
+									Nome = reader["nome"].ToString(),
+									Cpf = reader["cpf"].ToString(),
+									DataNascimento = Convert.ToDateTime(reader["datanascimento"]),
+									Email = reader["email"].ToString()
+								};
+								lista.Add(cliente);
+							}
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Erro: " + ex.Message);
+				}
+			}
+			return lista;
+		}
+	}
 }
