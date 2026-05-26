@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using VendinhaTrabalho.Models;
 
 namespace VendinhaTrabalho.Data
+{
 	public class AppDbContext : DbContext
 	{
 		private readonly string _connectionString;
