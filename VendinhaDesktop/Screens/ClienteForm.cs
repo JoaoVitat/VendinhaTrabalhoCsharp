@@ -56,13 +56,13 @@ namespace VendinhaDesktop.Screens
 
             if (maskedTxtBoxCpf.Text.Trim() == "")
             {
-                errorProvider1.SetError(maskedTxtBoxCpf, "Digite seu Cpf!");
+                errorProvider2.SetError(maskedTxtBoxCpf, "Digite seu Cpf!");
                 error = true;
             }
 
             if (txtBoxEmail.Text.Trim() == "")
             {
-                errorProvider1.SetError(txtBoxEmail, "Digite seu Email!");
+                errorProvider3.SetError(txtBoxEmail, "Digite seu Email!");
                 error = true;
             }
             if (error)

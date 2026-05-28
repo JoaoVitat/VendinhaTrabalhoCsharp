@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Npgsql;
 using VendinhaTrabalho.Models;
 using VendinhaTrabalho.Services;
@@ -15,6 +16,21 @@ namespace VendinhaTrabalho
 		public bool AdicionarCliente(Clientes cliente, out string erro)
 		{
 			erro = null;
+
+
+			if (!Regex.IsMatch(cliente.Cpf, @"^\d{11}$"))
+			{
+				erro = "CPF inválido! Digite apenas 11 números.";
+				return false;
+			}
+
+
+			if (!string.IsNullOrWhiteSpace(cliente.Email) &&
+				!Regex.IsMatch(cliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+			{
+				erro = "Email inválido!";
+				return false;
+			}
 
 			if (CpfJaCadastrado(cliente.Cpf))
 			{
@@ -30,6 +46,7 @@ namespace VendinhaTrabalho
 				try
 				{
 					conexao.Open();
+
 					using (var comando = new NpgsqlCommand(query, conexao))
 					{
 						comando.Parameters.AddWithValue("@nome", cliente.Nome);
@@ -52,6 +69,7 @@ namespace VendinhaTrabalho
 		public List<Clientes> ObterTodos()
 		{
 			var lista = new List<Clientes>();
+
 			string query = "SELECT idcliente, nome, cpf, datanascimento, email FROM cliente ORDER BY idcliente ASC;";
 
 			using (var conexao = new NpgsqlConnection(_connectionString))
@@ -59,6 +77,7 @@ namespace VendinhaTrabalho
 				try
 				{
 					conexao.Open();
+
 					using (var comando = new NpgsqlCommand(query, conexao))
 					{
 						using (var reader = comando.ExecuteReader())
@@ -73,6 +92,7 @@ namespace VendinhaTrabalho
 									DataNascimento = Convert.ToDateTime(reader["datanascimento"]),
 									Email = reader["email"].ToString()
 								};
+
 								lista.Add(cliente);
 							}
 						}
@@ -83,12 +103,28 @@ namespace VendinhaTrabalho
 					Console.WriteLine("Erro ao buscar clientes: " + ex.Message);
 				}
 			}
+
 			return lista;
 		}
 
 		public bool AtualizarCliente(Clientes atualizarCliente, out string erro)
 		{
 			erro = null;
+
+
+			if (!Regex.IsMatch(atualizarCliente.Cpf, @"^\d{11}$"))
+			{
+				erro = "CPF inválido! Digite apenas 11 números.";
+				return false;
+			}
+
+
+			if (!string.IsNullOrWhiteSpace(atualizarCliente.Email) &&
+				!Regex.IsMatch(atualizarCliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+			{
+				erro = "Email inválido!";
+				return false;
+			}
 
 			string query = @"UPDATE cliente 
                              SET nome = @nome, cpf = @cpf, datanascimento = @datanascimento, email = @email 
@@ -99,6 +135,7 @@ namespace VendinhaTrabalho
 				try
 				{
 					conexao.Open();
+
 					using (var comando = new NpgsqlCommand(query, conexao))
 					{
 						comando.Parameters.AddWithValue("@idcliente", atualizarCliente.IdCliente);
@@ -128,10 +165,12 @@ namespace VendinhaTrabalho
 				try
 				{
 					conexao.Open();
+
 					using (var comando = new NpgsqlCommand(query, conexao))
 					{
 						comando.Parameters.AddWithValue("@idcliente", idCliente);
 						comando.ExecuteNonQuery();
+
 						return true;
 					}
 				}
@@ -145,13 +184,17 @@ namespace VendinhaTrabalho
 		private bool CpfJaCadastrado(string cpf)
 		{
 			string query = "SELECT COUNT(*) FROM cliente WHERE cpf = @cpf;";
+
 			using (var conexao = new NpgsqlConnection(_connectionString))
 			{
 				conexao.Open();
+
 				using (var comando = new NpgsqlCommand(query, conexao))
 				{
 					comando.Parameters.AddWithValue("@cpf", cpf);
+
 					long contagem = (long)comando.ExecuteScalar();
+
 					return contagem > 0;
 				}
 			}
@@ -170,28 +213,32 @@ namespace VendinhaTrabalho
 		public List<Clientes> OrdenadosPorDivida(DividaService dividaService)
 		{
 			return ObterTodos()
-			.OrderByDescending(cliente => dividaService.TotalDividaPorCpf(cliente.Cpf))
-			.ToList();
+				.OrderByDescending(cliente => dividaService.TotalDividaPorCpf(cliente.Cpf))
+				.ToList();
 		}
 
 		public List<Clientes> ObterPorPagina(int paginaAtual)
 		{
 			var lista = new List<Clientes>();
+
 			int tamanhoPagina = 10;
 
-			if (paginaAtual < 1) paginaAtual = 1;
+			if (paginaAtual < 1)
+				paginaAtual = 1;
+
 			int registrosParaPular = (paginaAtual - 1) * tamanhoPagina;
 
 			string query = @"SELECT idcliente, nome, cpf, datanascimento, email 
-                     FROM cliente 
-                     ORDER BY idcliente ASC 
-                     LIMIT @limit OFFSET @offset;";
+                             FROM cliente 
+                             ORDER BY idcliente ASC 
+                             LIMIT @limit OFFSET @offset;";
 
 			using (var conexao = new NpgsqlConnection(_connectionString))
 			{
 				try
 				{
 					conexao.Open();
+
 					using (var comando = new NpgsqlCommand(query, conexao))
 					{
 						comando.Parameters.Add("@limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = tamanhoPagina;
@@ -209,6 +256,7 @@ namespace VendinhaTrabalho
 									DataNascimento = Convert.ToDateTime(reader["datanascimento"]),
 									Email = reader["email"].ToString()
 								};
+
 								lista.Add(cliente);
 							}
 						}
@@ -219,6 +267,7 @@ namespace VendinhaTrabalho
 					Console.WriteLine("Erro: " + ex.Message);
 				}
 			}
+
 			return lista;
 		}
 	}
