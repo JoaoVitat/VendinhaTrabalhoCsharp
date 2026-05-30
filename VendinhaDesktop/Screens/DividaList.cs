@@ -10,6 +10,8 @@ namespace VendinhaDesktop.Screens
 		private readonly Clientes _cliente;
 		private readonly DividaService _dividaService;
 
+		private int paginaAtual = 1;
+
 		public DividaList(Clientes clienteSelecionado, DividaService dividaService)
 		{
 			InitializeComponent();
@@ -26,12 +28,34 @@ namespace VendinhaDesktop.Screens
 		{
 			dataGridViewDividas.Rows.Clear();
 
-			var dividasDoCliente = _dividaService.ObterDividasPorCpf(_cliente.Cpf);
+			var dividasDoCliente = _dividaService.ObterDividasPorCpf(_cliente.IdCliente);
 
 			foreach (var div in dividasDoCliente)
 			{
 				string status = div.Situacao ? "Paga" : "Pendente";
-				string dataPagamento = div.DatadePagamento?.ToString("dd/MM/yyyy") ?? "—";
+				string dataPagamento = div.Situacao == false ? "—" : div.DatadePagamento?.ToString("dd/MM/yyyy") ?? "—";
+
+				dataGridViewDividas.Rows.Add(
+					$"R$ {div.Valor:N2}",
+					status,
+					div.DatadeCriacao.ToString("dd/MM/yyyy"),
+					dataPagamento
+				);
+			}
+
+
+			if (dividasDoCliente.Count == 0 && paginaAtual > 1)
+			{
+				MessageBox.Show("Não existem mais registros nesta página!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				paginaAtual--;
+				CarregarDividasTable();
+				return;
+			}
+
+			foreach (var div in dividasDoCliente)
+			{
+				string status = div.Situacao ? "Paga" : "Pendente";
+				string dataPagamento = div.Situacao == false ? "—" : div.DatadePagamento?.ToString("dd/MM/yyyy") ?? "—";
 
 				dataGridViewDividas.Rows.Add(
 					$"R$ {div.Valor:N2}",
@@ -44,14 +68,13 @@ namespace VendinhaDesktop.Screens
 
 		private void btnSalvarDivida_Click(object sender, EventArgs e)
 		{
-
 			if (!decimal.TryParse(txtBoxValor.Text, out decimal valorDigitado) || valorDigitado <= 0)
 			{
 				MessageBox.Show("Por favor, insira um valor válido maior que zero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				return;
 			}
 
-			string resultado = _dividaService.AdicionarDivida(_cliente.Cpf, valorDigitado);
+			string resultado = _dividaService.AdicionarDivida(_cliente.IdCliente, valorDigitado);
 
 			if (resultado.StartsWith("Error"))
 			{
@@ -61,23 +84,14 @@ namespace VendinhaDesktop.Screens
 			{
 				MessageBox.Show(resultado, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				txtBoxValor.Clear();
+				paginaAtual = 1;
 				CarregarDividasTable();
 			}
 		}
 
-		private void DividaList_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		private void dataGridViewDividas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-		{
-
-		}
-
 		private void btnRetirarDivida_Click(object sender, EventArgs e)
 		{
-			string resultado = _dividaService.DividaPaga(_cliente.Cpf);
+			string resultado = _dividaService.DividaPaga(_cliente.IdCliente);
 
 			if (resultado.StartsWith("Erro"))
 			{
@@ -89,5 +103,8 @@ namespace VendinhaDesktop.Screens
 				CarregarDividasTable();
 			}
 		}
+
+		private void DividaList_Load(object sender, EventArgs e) { }
+		private void dataGridViewDividas_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 	}
 }

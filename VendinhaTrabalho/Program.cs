@@ -58,20 +58,20 @@ while (true) {
     //    Console.ReadKey();
     //}
 
-    else if (opcao == 2)
-    {
-        Dividas dividas = new Dividas();
+    //else if (opcao == 2)
+    //{
+    //    Dividas dividas = new Dividas();
 
-        Console.Write("CPF: ");
-        string cpf = Console.ReadLine();
+    //    Console.Write("CPF: ");
+    //    string cpf = Console.ReadLine();
 
-        Console.Write("Valor da Compra: ");
-        decimal valor = decimal.Parse(Console.ReadLine());
+    //    Console.Write("Valor da Compra: ");
+    //    decimal valor = decimal.Parse(Console.ReadLine());
 
-        string mensagem = serviceDivida.AdicionarDivida(cpf, valor);
+    //    string mensagem = serviceDivida.AdicionarDivida(cpf, valor);
 
-        Console.WriteLine(mensagem);
-    }
+    //    Console.WriteLine(mensagem);
+    //}
 
     //else if (opcao == 3)
     //{

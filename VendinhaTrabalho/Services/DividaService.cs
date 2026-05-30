@@ -1,64 +1,161 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using Npgsql;
 using VendinhaTrabalho.Models;
 
 namespace VendinhaTrabalho.Services
 {
-    public class DividaService
-    {
-        private List<Dividas> list = new List<Dividas>();
+	public class DividaService
+	{
+		private readonly string _connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=3451;Database=db_vendinha;";
 
-        public string AdicionarDivida(string cpf, decimal valor)
-        {
-            var dividaAberta = list.Any(d => d.CpfCliente == cpf && !d.Situacao);
+		public string AdicionarDivida(int idCliente, decimal valor)
+		{
+			bool temDividaAberta = false;
+			string queryCheck = "SELECT EXISTS(SELECT 1 FROM divida WHERE idcliente = @idCliente AND situacao = false);";
 
-            if (dividaAberta)
-            {
-                return "Error: Cliente já tem uma divida em aberto!";
-            }
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var cmdCheck = new NpgsqlCommand(queryCheck, conexao))
+					{
+						cmdCheck.Parameters.AddWithValue("@idCliente", idCliente);
+						temDividaAberta = Convert.ToBoolean(cmdCheck.ExecuteScalar());
+					}
 
-            var novaDivida = new Dividas
-            {
-                CpfCliente = cpf,
-                Valor = valor,
-                Situacao = false,
-                DatadeCriacao = DateTime.Now,
-                DatadePagamento = null
-            };
+					if (temDividaAberta)
+					{
+						return "Error: Cliente já tem uma divida em aberto!";
+					}
 
-            list.Add(novaDivida);
+					string queryInsert = @"INSERT INTO divida (iddivida, valor, situacao, datadecriacao, datapagamento, idcliente) 
+                                          VALUES ((SELECT COALESCE(MAX(iddivida), 0) + 1 FROM divida), @valor, false, @datacriacao, @datapagamento, @idCliente);";
 
-            return "Sucesso: Divida cadastrada.";
+					using (var cmdInsert = new NpgsqlCommand(queryInsert, conexao))
+					{
+						cmdInsert.Parameters.AddWithValue("@valor", valor);
+						cmdInsert.Parameters.AddWithValue("@datacriacao", DateTime.Today);
+						cmdInsert.Parameters.AddWithValue("@datapagamento", DateTime.Today);
+						cmdInsert.Parameters.AddWithValue("@idCliente", idCliente);
 
-        }
+						cmdInsert.ExecuteNonQuery();
+					}
+				}
+				catch (Exception ex)
+				{
+					return "Error: Erro ao salvar no banco: " + ex.Message;
+				}
+			}
 
-        public decimal TotalDividaPorCpf(string cpf)
-        {
-
-			return list
-		        .Where(d => d.CpfCliente == cpf && !d.Situacao)
-		        .Sum(d => d.Valor);
+			return "Sucesso: Divida cadastrada.";
 		}
 
-        public string DividaPaga(string cpfP)
-        {
-            var pagarDivida = list.FirstOrDefault(d => d.CpfCliente == cpfP);
+		public decimal TotalDividaPorCpf(string cpf)
+		{
+			decimal total = 0;
+			string query = @"SELECT COALESCE(SUM(d.valor), 0) 
+                             FROM divida d
+                             INNER JOIN cliente c ON d.idcliente = c.idcliente
+                             WHERE c.cpf = @cpf AND d.situacao = false;";
 
-            if (pagarDivida == null)
-            {
-                return $"Erro: Nenhuma divida foi encontrada neste cpf!";
-            }
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(query, conexao))
+					{
+						comando.Parameters.AddWithValue("@cpf", cpf);
+						total = Convert.ToDecimal(comando.ExecuteScalar());
+					}
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Erro ao somar dívida: " + ex.Message);
+				}
+			}
+			return total;
+		}
 
-            pagarDivida.Situacao = true;
-            pagarDivida.DatadePagamento = DateTime.Now;
-            return $"Divida do cpf({cpfP}) paga com sucesso!";
-        }
+		public string DividaPaga(int idCliente)
+		{
+			string queryUpdate = @"UPDATE divida 
+                                  SET situacao = true, datapagamento = @datapagamento 
+                                  WHERE iddivida = (
+                                      SELECT iddivida FROM divida 
+                                      WHERE idcliente = @idCliente AND situacao = false 
+                                      ORDER BY iddivida ASC LIMIT 1
+                                  );";
 
-        public List<Dividas> ObterDividasPorCpf(string cpf)
-        {
-            return list.Where(divida => divida.CpfCliente == cpf).ToList();
-        }
-    }
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				try
+				{
+					conexao.Open();
+					using (var comando = new NpgsqlCommand(queryUpdate, conexao))
+					{
+						comando.Parameters.AddWithValue("@idCliente", idCliente);
+						comando.Parameters.AddWithValue("@datapagamento", DateTime.Today);
+
+						int linhasAfetadas = comando.ExecuteNonQuery();
+
+						if (linhasAfetadas == 0)
+						{
+							return $"Erro: Nenhuma divida ativa foi encontrada para este cliente!";
+						}
+					}
+				}
+				catch (Exception ex)
+				{
+					return "Erro ao pagar dívida no banco: " + ex.Message;
+				}
+			}
+
+			return $"Divida paga com sucesso!";
+		}
+		public List<Dividas> ObterDividasPorCpf(int idCliente)
+		{
+		var lista = new List<Dividas>();
+
+		string query = @"SELECT Valor, Situacao, DatadeCriacao, DataPagamento 
+                    FROM divida 
+                    WHERE idCliente = @idCliente
+                    ORDER BY iddivida DESC;";
+
+		using (var conexao = new NpgsqlConnection(_connectionString))
+		{
+			try
+			{
+				conexao.Open();
+				using (var comando = new NpgsqlCommand(query, conexao))
+				{
+					comando.Parameters.AddWithValue("@idCliente", idCliente);
+
+					using (var reader = comando.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							var divida = new Dividas
+							{
+								Valor = Convert.ToDecimal(reader["Valor"]),
+								Situacao = Convert.ToBoolean(reader["Situacao"]),
+								DatadeCriacao = Convert.ToDateTime(reader["DatadeCriacao"]),
+								DatadePagamento = Convert.ToBoolean(reader["Situacao"]) == false ? (DateTime?)null : Convert.ToDateTime(reader["DataPagamento"])
+							};
+							lista.Add(divida);
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Erro ao buscar todas as dívidas: " + ex.Message);
+			}
+		}
+		return lista;
+		}
+	}
 }

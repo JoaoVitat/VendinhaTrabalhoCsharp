@@ -46,11 +46,11 @@
 			dataGridViewDividas.BackgroundColor = SystemColors.ButtonHighlight;
 			dataGridViewDividas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dataGridViewDividas.Columns.AddRange(new DataGridViewColumn[] { valorDivida, situacaoDivida, dataCompraDivida, dataPagamentoDivida });
-			dataGridViewDividas.Location = new Point(211, 237);
+			dataGridViewDividas.Location = new Point(144, 154);
 			dataGridViewDividas.Margin = new Padding(3, 4, 3, 4);
 			dataGridViewDividas.Name = "dataGridViewDividas";
 			dataGridViewDividas.RowHeadersWidth = 51;
-			dataGridViewDividas.Size = new Size(505, 200);
+			dataGridViewDividas.Size = new Size(553, 270);
 			dataGridViewDividas.TabIndex = 0;
 			dataGridViewDividas.CellContentClick += dataGridViewDividas_CellContentClick;
 			// 
@@ -86,7 +86,7 @@
 			// 
 			lblNomeCliente.AutoSize = true;
 			lblNomeCliente.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lblNomeCliente.Location = new Point(211, 69);
+			lblNomeCliente.Location = new Point(369, 9);
 			lblNomeCliente.Name = "lblNomeCliente";
 			lblNomeCliente.Size = new Size(117, 46);
 			lblNomeCliente.TabIndex = 1;
@@ -96,7 +96,7 @@
 			// 
 			lblValorDivida.AutoSize = true;
 			lblValorDivida.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			lblValorDivida.Location = new Point(211, 156);
+			lblValorDivida.Location = new Point(211, 87);
 			lblValorDivida.Name = "lblValorDivida";
 			lblValorDivida.Size = new Size(92, 37);
 			lblValorDivida.TabIndex = 2;
@@ -104,7 +104,7 @@
 			// 
 			// txtBoxValor
 			// 
-			txtBoxValor.Location = new Point(298, 165);
+			txtBoxValor.Location = new Point(298, 97);
 			txtBoxValor.Margin = new Padding(3, 4, 3, 4);
 			txtBoxValor.Name = "txtBoxValor";
 			txtBoxValor.Size = new Size(188, 27);
@@ -113,7 +113,7 @@
 			// btnSalvarDivida
 			// 
 			btnSalvarDivida.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			btnSalvarDivida.Location = new Point(494, 161);
+			btnSalvarDivida.Location = new Point(492, 87);
 			btnSalvarDivida.Margin = new Padding(3, 4, 3, 4);
 			btnSalvarDivida.Name = "btnSalvarDivida";
 			btnSalvarDivida.Size = new Size(99, 40);
@@ -125,7 +125,7 @@
 			// btnRetirarDivida
 			// 
 			btnRetirarDivida.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-			btnRetirarDivida.Location = new Point(332, 444);
+			btnRetirarDivida.Location = new Point(307, 467);
 			btnRetirarDivida.Name = "btnRetirarDivida";
 			btnRetirarDivida.Size = new Size(261, 47);
 			btnRetirarDivida.TabIndex = 5;
@@ -137,7 +137,7 @@
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(914, 600);
+			ClientSize = new Size(914, 616);
 			Controls.Add(btnRetirarDivida);
 			Controls.Add(btnSalvarDivida);
 			Controls.Add(txtBoxValor);
@@ -165,5 +165,6 @@
         private TextBox txtBoxValor;
         private Button btnSalvarDivida;
 		private Button btnRetirarDivida;
+		private Button button1;
 	}
 }
