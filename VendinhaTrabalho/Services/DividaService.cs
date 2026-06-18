@@ -50,7 +50,7 @@ namespace VendinhaTrabalho.Services
 						novoIdDivida = Convert.ToInt32(cmdProximoId.ExecuteScalar());
 					}
 
-					string queryInsert = @"INSERT INTO divida (iddivida, valor, situacao datadecriacao, datapagamento, idcliente) VALUES (@iddivida, @valor, false, @datacriacao @datapagamento, @idCliente);";
+					string queryInsert = @"INSERT INTO divida (iddivida, valor, situacao, datadecriacao, datapagamento, idcliente) VALUES (@iddivida, @valor, false, @datacriacao, @datapagamento, @idCliente);";
 
 					using (var cmdInsert = new NpgsqlCommand(queryInsert, conexao))
 					{
