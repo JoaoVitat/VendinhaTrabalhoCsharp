@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Npgsql;
+using VendinhaTrabalho.Data;
 using VendinhaTrabalho.Models;
 using VendinhaTrabalho.Services;
 
@@ -11,24 +12,22 @@ namespace VendinhaTrabalho
 {
 	public class ClienteServices
 	{
-		private readonly string _connectionString = "Server=localhost;Port=5432;User Id=postgres;Password=3451;Database=db_vendinha;";
+		private readonly string _connectionString = ConexaoBanco.ConnectionString;
+
+
+		private static DateTime ConverterParaDateTime(object valor)
+		{
+			if (valor is DateOnly data)
+			{
+				return data.ToDateTime(TimeOnly.MinValue);
+			}
+			return Convert.ToDateTime(valor);
+		}
 
 		public bool AdicionarCliente(Clientes cliente, out string erro)
 		{
-			erro = null;
-
-
-			if (!Regex.IsMatch(cliente.Cpf, @"^\d{11}$"))
+			if (!ValidarCliente(cliente, out erro))
 			{
-				erro = "CPF inválido! Digite apenas 11 números.";
-				return false;
-			}
-
-
-			if (!string.IsNullOrWhiteSpace(cliente.Email) &&
-				!Regex.IsMatch(cliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-			{
-				erro = "Email inválido!";
 				return false;
 			}
 
@@ -38,8 +37,9 @@ namespace VendinhaTrabalho
 				return false;
 			}
 
-			string query = @"INSERT INTO cliente (nome, cpf, datanascimento, email) 
-                             VALUES (@nome, @cpf, @datanascimento, @email);";
+			int novoId = ObterProximoIdCliente();
+
+			string query = @"INSERT INTO cliente (idcliente, nome, cpf, datanascimento, email) VALUES (@idcliente, @nome, @cpf, @datanascimento, @email);";
 
 			using (var conexao = new NpgsqlConnection(_connectionString))
 			{
@@ -49,12 +49,14 @@ namespace VendinhaTrabalho
 
 					using (var comando = new NpgsqlCommand(query, conexao))
 					{
+						comando.Parameters.AddWithValue("@idcliente", novoId);
 						comando.Parameters.AddWithValue("@nome", cliente.Nome);
 						comando.Parameters.AddWithValue("@cpf", cliente.Cpf);
 						comando.Parameters.AddWithValue("@datanascimento", cliente.DataNascimento);
 						comando.Parameters.AddWithValue("@email", cliente.Email ?? (object)DBNull.Value);
 
 						comando.ExecuteNonQuery();
+						cliente.IdCliente = novoId;
 						return true;
 					}
 				}
@@ -64,6 +66,52 @@ namespace VendinhaTrabalho
 					return false;
 				}
 			}
+		}
+
+
+		private int ObterProximoIdCliente()
+		{
+			string query = "SELECT COALESCE(MAX(idcliente), 0) + 1 FROM cliente;";
+
+			using (var conexao = new NpgsqlConnection(_connectionString))
+			{
+				conexao.Open();
+
+				using (var comando = new NpgsqlCommand(query, conexao))
+				{
+					return Convert.ToInt32(comando.ExecuteScalar());
+				}
+			}
+		}
+
+		private bool ValidarCliente(Clientes cliente, out string erro)
+		{
+			erro = null;
+
+			var contexto = new ValidationContext(cliente);
+			var resultados = new List<ValidationResult>();
+
+			bool valido = Validator.TryValidateObject(cliente, contexto, resultados, validateAllProperties: true);
+
+			if (!valido)
+			{
+				erro = resultados.First().ErrorMessage;
+				return false;
+			}
+
+			if (!Regex.IsMatch(cliente.Cpf, @"^\d{11}$"))
+			{
+				erro = "CPF inválido! Digite apenas 11 números.";
+				return false;
+			}
+
+			if (!Regex.IsMatch(cliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+			{
+				erro = "Email inválido!";
+				return false;
+			}
+
+			return true;
 		}
 
 		public List<Clientes> ObterTodos()
@@ -89,7 +137,7 @@ namespace VendinhaTrabalho
 									IdCliente = Convert.ToInt32(reader["idcliente"]),
 									Nome = reader["nome"].ToString(),
 									Cpf = reader["cpf"].ToString(),
-									DataNascimento = Convert.ToDateTime(reader["datanascimento"]),
+									DataNascimento = ConverterParaDateTime(reader["datanascimento"]),
 									Email = reader["email"].ToString()
 								};
 
@@ -101,6 +149,7 @@ namespace VendinhaTrabalho
 				catch (Exception ex)
 				{
 					Console.WriteLine("Erro ao buscar clientes: " + ex.Message);
+					throw; 
 				}
 			}
 
@@ -109,26 +158,12 @@ namespace VendinhaTrabalho
 
 		public bool AtualizarCliente(Clientes atualizarCliente, out string erro)
 		{
-			erro = null;
-
-
-			if (!Regex.IsMatch(atualizarCliente.Cpf, @"^\d{11}$"))
+			if (!ValidarCliente(atualizarCliente, out erro))
 			{
-				erro = "CPF inválido! Digite apenas 11 números.";
 				return false;
 			}
 
-
-			if (!string.IsNullOrWhiteSpace(atualizarCliente.Email) &&
-				!Regex.IsMatch(atualizarCliente.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-			{
-				erro = "Email inválido!";
-				return false;
-			}
-
-			string query = @"UPDATE cliente 
-                             SET nome = @nome, cpf = @cpf, datanascimento = @datanascimento, email = @email 
-                             WHERE idcliente = @idcliente;";
+			string query = @"UPDATE cliente SET nome = @nome, cpf = @cpf, datanascimento = @datanascimento, email = @email WHERE idcliente = @idcliente;";
 
 			using (var conexao = new NpgsqlConnection(_connectionString))
 			{
@@ -208,67 +243,6 @@ namespace VendinhaTrabalho
 		public Clientes ObterPorId(int id)
 		{
 			return ObterTodos().FirstOrDefault(c => c.IdCliente == id);
-		}
-
-		public List<Clientes> OrdenadosPorDivida(DividaService dividaService)
-		{
-			return ObterTodos()
-				.OrderByDescending(cliente => dividaService.TotalDividaPorCpf(cliente.Cpf))
-				.ToList();
-		}
-
-		public List<Clientes> ObterPorPagina(int paginaAtual)
-		{
-			var lista = new List<Clientes>();
-
-			int tamanhoPagina = 10;
-
-			if (paginaAtual < 1)
-				paginaAtual = 1;
-
-			int registrosParaPular = (paginaAtual - 1) * tamanhoPagina;
-
-			string query = @"SELECT idcliente, nome, cpf, datanascimento, email 
-                             FROM cliente 
-                             ORDER BY idcliente ASC 
-                             LIMIT @limit OFFSET @offset;";
-
-			using (var conexao = new NpgsqlConnection(_connectionString))
-			{
-				try
-				{
-					conexao.Open();
-
-					using (var comando = new NpgsqlCommand(query, conexao))
-					{
-						comando.Parameters.Add("@limit", NpgsqlTypes.NpgsqlDbType.Integer).Value = tamanhoPagina;
-						comando.Parameters.Add("@offset", NpgsqlTypes.NpgsqlDbType.Integer).Value = registrosParaPular;
-
-						using (var reader = comando.ExecuteReader())
-						{
-							while (reader.Read())
-							{
-								var cliente = new Clientes
-								{
-									IdCliente = Convert.ToInt32(reader["idcliente"]),
-									Nome = reader["nome"].ToString(),
-									Cpf = reader["cpf"].ToString(),
-									DataNascimento = Convert.ToDateTime(reader["datanascimento"]),
-									Email = reader["email"].ToString()
-								};
-
-								lista.Add(cliente);
-							}
-						}
-					}
-				}
-				catch (Exception ex)
-				{
-					Console.WriteLine("Erro: " + ex.Message);
-				}
-			}
-
-			return lista;
 		}
 	}
 }

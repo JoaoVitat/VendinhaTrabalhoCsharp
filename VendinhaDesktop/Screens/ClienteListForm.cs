@@ -17,55 +17,92 @@ namespace VendinhaDesktop.Screens
 		private readonly DividaService _dividaService;
 
 		private int paginaAtual = 1;
+
+		// Classe auxiliar que une o cliente com o total de dívidas dele.
+		// Usada apenas para montar a lista ordenada antes de exibir na grade.
+		private class ClienteComDivida
+		{
+			public Clientes Cliente;
+			public decimal TotalDivida;
+		}
+
 		public ClienteListForm(ClienteServices service, DividaService dividaService)
 		{
 			_service = service;
 			_dividaService = dividaService;
 
-
 			InitializeComponent();
 			CarregarClientesTable();
-
-
 		}
 
 		private void CarregarClientesTable()
 		{
-			dataGridViewClientes.Rows.Clear();
-
-			var clientesPaginados = _service.ObterPorPagina(paginaAtual);
-
-			if (clientesPaginados.Count == 0 && paginaAtual > 1)
+			try
 			{
-				MessageBox.Show("Você já está na última página com registros!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				paginaAtual--;
-				CarregarClientesTable();
-				return;
+				dataGridViewClientes.Rows.Clear();
+
+				
+				List<Clientes> todosOsClientes = _service.ObterTodos();
+
+				
+				List<ClienteComDivida> listaParaExibir = new List<ClienteComDivida>();
+
+				foreach (Clientes cliente in todosOsClientes)
+				{
+					decimal total = _dividaService.TotalDividaPorCpf(cliente.Cpf);
+
+					listaParaExibir.Add(new ClienteComDivida
+					{
+						Cliente = cliente,
+						TotalDivida = total
+					});
+				}
+
+				
+				listaParaExibir.Sort((a, b) => b.TotalDivida.CompareTo(a.TotalDivida));
+
+				
+				int registrosPorPagina = 10;
+				int inicio = (paginaAtual - 1) * registrosPorPagina;
+
+				if (inicio >= listaParaExibir.Count && paginaAtual > 1)
+				{
+					MessageBox.Show("Você já está na última página com registros!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					paginaAtual--;
+					CarregarClientesTable();
+					return;
+				}
+
+				
+				for (int i = inicio; i < inicio + registrosPorPagina && i < listaParaExibir.Count; i++)
+				{
+					Clientes c = listaParaExibir[i].Cliente;
+					decimal divida = listaParaExibir[i].TotalDivida;
+
+					dataGridViewClientes.Rows.Add(
+						c.IdCliente.ToString(),
+						c.Nome,
+						c.Cpf,
+						c.DataNascimento.ToString("dd/MM/yyyy"),
+						c.Idade,
+						c.Email,
+						$"R$ {divida:N2}"
+					);
+				}
+
+				lblPagina.Text = paginaAtual.ToString();
+				btnAnterior.Enabled = paginaAtual > 1;
+				btnProximo.Enabled = (inicio + registrosPorPagina) < listaParaExibir.Count;
 			}
-
-			var clientesOrdenados = clientesPaginados
-									.OrderByDescending(cliente => _dividaService.TotalDividaPorCpf(cliente.Cpf))
-									.ToList();
-
-			foreach (var item in clientesOrdenados)
+			catch (Exception ex)
 			{
-				decimal totalPendente = _dividaService.TotalDividaPorCpf(item.Cpf);
-
-				dataGridViewClientes.Rows.Add(
-					item.IdCliente.ToString(),
-					item.Nome,
-					item.Cpf,
-					item.DataNascimento.ToString("dd/MM/yyyy"),
-					item.Idade,
-					item.Email,
-					$"R$ {totalPendente:N2}"
+				MessageBox.Show(
+					"Não foi possível carregar a lista de clientes.\n\nDetalhe do erro: " + ex.Message,
+					"Erro ao conectar ao banco",
+					MessageBoxButtons.OK,
+					MessageBoxIcon.Error
 				);
 			}
-
-			lblPagina.Text = paginaAtual.ToString();
-
-			btnAnterior.Enabled = paginaAtual > 1;
-			btnProximo.Enabled = true;
 		}
 
 		private void dataGridViewClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -180,26 +217,6 @@ namespace VendinhaDesktop.Screens
 			{
 				MessageBox.Show("Nenhum cliente cadastrado com este CPF foi encontrado.", "Não Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
-		}
-
-		private void AtualizarGrade()
-		{
-			var dadosPaginados = _service.ObterPorPagina(paginaAtual);
-
-			if (dadosPaginados.Count == 0 && paginaAtual > 1)
-			{
-				MessageBox.Show("Você já está na última página com registros!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				paginaAtual--;
-				return;
-			}
-
-			dataGridViewClientes.DataSource = null;
-			dataGridViewClientes.DataSource = dadosPaginados;
-
-			lblPagina.Text = paginaAtual.ToString();
-
-
-			btnProximo.Enabled = true;
 		}
 
 		private void btnAnterior_Click(object sender, EventArgs e)

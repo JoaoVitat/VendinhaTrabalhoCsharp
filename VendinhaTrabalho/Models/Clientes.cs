@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
 
 namespace VendinhaTrabalho.Models
 {
@@ -12,9 +11,7 @@ namespace VendinhaTrabalho.Models
 		public int IdCliente { get; set; }
 
 		[Column("Nome")]
-		[Required(ErrorMessage = "O nome do cliente é obrigatório")]
-		[StringLength(100, MinimumLength = 10)]
-		[RegularExpression("^[A-Z][A-zA-z]+ [A-Z][A-zA-z ]+[^ ]$")]
+		[StringLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres")]
 
 		public string Nome { get; set; }
 
@@ -27,7 +24,7 @@ namespace VendinhaTrabalho.Models
 		[Column("DataNascimento")]
 		public DateTime DataNascimento { get; set; }
 
-		[Range (15, 99)]
+		[Range(15, 99, ErrorMessage = "A idade do cliente deve estar entre 15 e 99 anos")]
 		public int Idade
 		{
 			get 
